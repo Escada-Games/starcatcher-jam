@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/tileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/mechanics/spinner.gd" type="Script" id=2]
+
+[node name="spinner" type="KinematicBody2D" groups=["Spinner"]]
+position = Vector2( 121, 93 )
+collision_layer = 7
+collision_mask = 7
+script = ExtResource( 2 )
+
+[node name="tween" type="Tween" parent="."]
+
+[node name="tileMap" parent="." instance=ExtResource( 1 )]
+collision_use_parent = true
+collision_use_kinematic = true
+tile_data = PoolIntArray( -196610, 1, 0, -196609, 1, 0, -131074, 1, 0, -131073, 1, 0, -65538, 1, 0, -65537, 1, 0, -2, 1, 0, -1, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0 )

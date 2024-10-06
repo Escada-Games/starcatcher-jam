@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/mainCamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/fgbg.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/tileMap.tscn" type="PackedScene" id=5]
+
+[node name="debugRoot" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 125.0 ],
+"_edit_vertical_guides_": [ 158.0 ]
+}
+
+[node name="debug2d" type="Node2D" parent="."]
+
+[node name="mainCamera" parent="debug2d" instance=ExtResource( 2 )]
+
+[node name="fgbg" parent="debug2d" instance=ExtResource( 3 )]
+
+[node name="player" parent="debug2d" instance=ExtResource( 1 )]
+unique_name_in_owner = true
+position = Vector2( 62, -40 )
+
+[node name="starExit" parent="debug2d" instance=ExtResource( 4 )]
+position = Vector2( 118, 48 )
+rotation = 3.14159
+
+[node name="tileMap" parent="debug2d" instance=ExtResource( 5 )]
+position = Vector2( -2, 0 )
+collision_layer = 7
+collision_mask = 7
+tile_data = PoolIntArray( 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 131089, 1, 0, 131090, 1, 0, 196625, 1, 0, 196626, 1, 0, 393233, 1, 0, 393234, 1, 0, 458769, 1, 0, 458770, 1, 0, 524305, 1, 0, 524306, 1, 0, 589841, 1, 0, 589842, 1, 0, 655377, 1, 0, 655378, 1, 0, 720913, 1, 0, 720914, 1, 0, 786449, 1, 0, 786450, 1, 0, 851985, 1, 0, 851986, 1, 0 )
+
+[node name="tileMapSliding" parent="debug2d/tileMap" index="0"]
+tile_data = PoolIntArray( 262160, 1, 0, 262161, 1, 0, 262162, 1, 0, 262163, 1, 0, 262164, 1, 0, 262165, 1, 0, 327696, 1, 0, 327697, 1, 0, 327698, 1, 0, 327699, 1, 0, 327700, 1, 0, 327701, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 786435, 1, 0, 786436, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786442, 1, 0, 786443, 1, 0, 786444, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 851971, 1, 0, 851972, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0 )
+
+[node name="stuff" type="Node2D" parent="debug2d"]
+
+[editable path="debug2d/tileMap"]

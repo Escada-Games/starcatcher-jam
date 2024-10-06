@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/textures/sprStarsBg.png" type="Texture" id=1]
+[ext_resource path="res://scenes/sprStar.gd" type="Script" id=2]
+
+[node name="sprStar" type="Sprite"]
+texture = ExtResource( 1 )
+hframes = 14
+vframes = 14
+frame = 182
+script = ExtResource( 2 )
+
+[node name="tween" type="Tween" parent="."]
+
+[node name="timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/btnGoToStage.gd" type="Script" id=1]
+
+[node name="btnGoToStage" type="Button"]
+margin_right = 267.0
+margin_bottom = 20.0
+text = "E"
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="." to="." method="_on_btnGoToStage_pressed"]

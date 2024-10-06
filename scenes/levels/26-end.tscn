@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/exit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/sprStarEnd.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/tileMap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/fgbg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/mainCamera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/panelGuide.tscn" type="PackedScene" id=7]
+
+[node name="debugRoot" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 125.0 ],
+"_edit_vertical_guides_": [ 158.0 ]
+}
+
+[node name="debug2d" type="Node2D" parent="."]
+
+[node name="mainCamera" parent="debug2d" instance=ExtResource( 6 )]
+
+[node name="fgbg" parent="debug2d" instance=ExtResource( 5 )]
+
+[node name="player" parent="debug2d" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+position = Vector2( -98, 134 )
+
+[node name="starExit" parent="debug2d" instance=ExtResource( 1 )]
+position = Vector2( 406, 64 )
+
+[node name="tileMap" parent="debug2d" instance=ExtResource( 4 )]
+position = Vector2( -2, 0 )
+collision_layer = 7
+collision_mask = 7
+tile_data = PoolIntArray( 65527, 1, 1, 65528, 1, 0, 65529, 1, 0, 65530, 1, 0, 65531, 1, 0, 65532, 1, 65536, 131063, 1, 196608, 131068, 1, 0, 196599, 1, 131073, 196604, 1, 131072, 262135, 1, 65537, 262140, 1, 0, 327671, 1, 3, 327676, 1, 0, 393207, 1, 131073, 393208, 1, 131073, 393209, 1, 196609, 393210, 1, 0, 393211, 1, 0, 393212, 1, 196608 )
+
+[node name="tileMapRocks" parent="debug2d/tileMap" index="4"]
+tile_data = PoolIntArray( 131075, 4, 65537, 131076, 4, 196610, 131079, 4, 0, 131080, 4, 3, 131081, 4, 196611, 131082, 4, 2, 131083, 4, 0, 131084, 4, 0, 131085, 4, 3, 720899, 4, 65537, 720900, 4, 1, 720901, 4, 131074, 720902, 4, 0 )
+
+[node name="stuff" type="Node2D" parent="debug2d"]
+position = Vector2( 0, -8 )
+
+[node name="sprStarEnd2" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 62, 40 )
+
+[node name="sprStarEnd3" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 38, 40 )
+
+[node name="sprStarEnd4" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 86, 40 )
+
+[node name="sprStarEnd6" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 62, 64 )
+
+[node name="sprStarEnd7" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 62, 88 )
+
+[node name="sprStarEnd8" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 62, 112 )
+
+[node name="sprStarEnd23" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 62, 136 )
+
+[node name="sprStarEnd9" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 134, 40 )
+
+[node name="sprStarEnd10" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 134, 64 )
+
+[node name="sprStarEnd11" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 134, 88 )
+
+[node name="sprStarEnd12" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 134, 112 )
+
+[node name="sprStarEnd24" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 134, 136 )
+
+[node name="sprStarEnd13" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 158, 88 )
+
+[node name="sprStarEnd14" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 182, 40 )
+
+[node name="sprStarEnd15" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 182, 64 )
+
+[node name="sprStarEnd16" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 182, 88 )
+
+[node name="sprStarEnd17" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 182, 112 )
+
+[node name="sprStarEnd25" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 182, 136 )
+
+[node name="sprStarEnd18" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 238, 40 )
+
+[node name="sprStarEnd19" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 238, 64 )
+
+[node name="sprStarEnd20" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 262, 88 )
+
+[node name="sprStarEnd22" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 238, 112 )
+
+[node name="sprStarEnd26" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 238, 136 )
+
+[node name="sprStarEnd27" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 286, 40 )
+
+[node name="sprStarEnd28" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 286, 64 )
+
+[node name="sprStarEnd29" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 286, 112 )
+
+[node name="sprStarEnd30" parent="debug2d/stuff" instance=ExtResource( 2 )]
+position = Vector2( 286, 136 )
+
+[node name="panelGuide" parent="debug2d" instance=ExtResource( 7 )]
+margin_left = 102.0
+margin_top = 160.0
+margin_right = 214.0
+margin_bottom = 178.0
+fWaitTime = 6.0
+
+[node name="label" parent="debug2d/panelGuide/marginContainer" index="0"]
+margin_right = 110.0
+text = "For playing!"
+
+[editable path="debug2d/tileMap"]
+[editable path="debug2d/panelGuide"]

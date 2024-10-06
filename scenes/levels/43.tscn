@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/stageManager.gd" type="Script" id=1]
+[ext_resource path="res://scenes/starExit.gd" type="Script" id=2]
+[ext_resource path="res://resources/textures/player/pal0.png" type="Texture" id=3]
+[ext_resource path="res://scenes/exitStar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/mainCamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/fgbg.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/tileMap.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/mechanics/spinner.tscn" type="PackedScene" id=9]
+
+[node name="debugRoot" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 125.0 ],
+"_edit_vertical_guides_": [ 158.0 ]
+}
+
+[node name="stageManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 1 )
+iPalette = 9
+
+[node name="mainCamera" parent="stageManager" instance=ExtResource( 5 )]
+
+[node name="fgbg" parent="stageManager" instance=ExtResource( 7 )]
+
+[node name="player" parent="stageManager" instance=ExtResource( 6 )]
+unique_name_in_owner = true
+position = Vector2( 102, -40 )
+
+[node name="sprite" parent="stageManager/player" index="4"]
+texture = ExtResource( 3 )
+
+[node name="tileMap" parent="stageManager" instance=ExtResource( 8 )]
+position = Vector2( -2, -22 )
+collision_layer = 7
+collision_mask = 7
+
+[node name="stuff" type="Node2D" parent="stageManager"]
+
+[node name="spinner" parent="stageManager/stuff" instance=ExtResource( 9 )]
+position = Vector2( 158, 125 )
+
+[node name="tileMap" parent="stageManager/stuff/spinner" index="1"]
+tile_data = PoolIntArray( -5, 1, 0, -4, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0 )
+
+[node name="exit" parent="stageManager" instance=ExtResource( 4 )]
+position = Vector2( 158, 31 )
+script = ExtResource( 2 )
+
+[editable path="stageManager/player"]
+[editable path="stageManager/tileMap"]
+[editable path="stageManager/stuff/spinner"]

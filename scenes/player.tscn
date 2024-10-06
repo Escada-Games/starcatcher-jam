@@ -1,0 +1,278 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scenes/player.gd" type="Script" id=1]
+[ext_resource path="res://resources/textures/player.png" type="Texture" id=2]
+[ext_resource path="res://resources/placeholderMinimalTextures/lightCircleSoft.png" type="Texture" id=3]
+[ext_resource path="res://resources/textures/sprAmogus.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 3.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 5, 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "onAir"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 22 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "run"
+length = 0.9
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.15, 0.2, 0.55, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "createFootstepSfx"
+}, {
+"args": [ 1.0 ],
+"method": "createRunDust"
+}, {
+"args": [  ],
+"method": "createFootstepSfx"
+}, {
+"args": [ 1.0 ],
+"method": "createRunDust"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "win"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 33, 34, 35, 36, 37 ]
+}
+
+[sub_resource type="OccluderPolygon2D" id=8]
+polygon = PoolVector2Array( 2, -25, -2, -25, -3, -23, -4, -20, -3, -15, -2, -12, -2, 0, 2, 0, 2, -12, 3, -15, 4, -20, 3, -23 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 6, 13 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 5, 15.5 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 1, 2 )
+
+[node name="player" type="KinematicBody2D" groups=["Player"]]
+script = ExtResource( 1 )
+
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, -9 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="tween" type="Tween" parent="."]
+
+[node name="tweenSquish" type="Tween" parent="."]
+
+[node name="animationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/RESET = SubResource( 3 )
+anims/dead = SubResource( 9 )
+anims/idle = SubResource( 4 )
+anims/onAir = SubResource( 6 )
+anims/run = SubResource( 5 )
+anims/win = SubResource( 10 )
+
+[node name="sprite" type="Sprite" parent="."]
+light_mask = 0
+z_index = 100
+texture = ExtResource( 2 )
+offset = Vector2( 0, -15 )
+hframes = 11
+vframes = 4
+
+[node name="sprFaintLight" type="Sprite" parent="sprite"]
+modulate = Color( 1, 1, 1, 0.2 )
+position = Vector2( 0, -13 )
+scale = Vector2( 0.1, 0.1 )
+z_index = 100
+texture = ExtResource( 3 )
+offset = Vector2( 2, -15 )
+
+[node name="lightOccluder2D" type="LightOccluder2D" parent="sprite"]
+z_index = -1
+occluder = SubResource( 8 )
+
+[node name="spriteAmogus" type="Sprite" parent="."]
+visible = false
+light_mask = 0
+position = Vector2( 2, -15 )
+z_index = 100
+texture = ExtResource( 4 )
+
+[node name="collisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -13 )
+z_index = 999
+shape = SubResource( 7 )
+
+[node name="rcGravity" type="RayCast2D" parent="."]
+position = Vector2( 6, 11 )
+z_index = 4096
+enabled = true
+cast_to = Vector2( 1, 0 )
+
+[node name="rcTargetGravity" type="RayCast2D" parent="."]
+position = Vector2( 6, 11 )
+z_index = 4096
+enabled = true
+cast_to = Vector2( 1, 0 )
+
+[node name="rcFront" type="RayCast2D" parent="."]
+position = Vector2( 6, -2 )
+enabled = true
+cast_to = Vector2( 1, 0 )
+
+[node name="rcBack" type="RayCast2D" parent="."]
+position = Vector2( -6, -2 )
+enabled = true
+cast_to = Vector2( -1, 0 )
+
+[node name="rcFloorCheck" type="RayCast2D" parent="."]
+position = Vector2( 13, 5 )
+rotation = 1.57079
+enabled = true
+cast_to = Vector2( 0, 32 )
+
+[node name="rcFloorLeft" type="RayCast2D" parent="."]
+position = Vector2( -6, 0 )
+enabled = true
+cast_to = Vector2( 0, 32 )
+collide_with_areas = true
+
+[node name="rcFloorRight" type="RayCast2D" parent="."]
+position = Vector2( 6, 0 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+
+[node name="area2D" type="Area2D" parent="."]
+position = Vector2( 0, -13 )
+collision_layer = 6
+collision_mask = 6
+
+[node name="collisionShape2D" type="CollisionShape2D" parent="area2D"]
+position = Vector2( 0, 3.5 )
+shape = SubResource( 12 )
+
+[node name="floorArea2D" type="Area2D" parent="."]
+position = Vector2( 0, -13 )
+collision_layer = 7
+collision_mask = 7
+
+[node name="collisionShape2D" type="CollisionShape2D" parent="floorArea2D"]
+position = Vector2( 0, 18 )
+shape = SubResource( 13 )
+
+[node name="strState" type="Label" parent="."]
+margin_top = -43.0
+margin_right = 40.0
+margin_bottom = -29.0
+text = ":)"
+
+[node name="strFps" type="Label" parent="."]
+margin_top = -61.0
+margin_right = 40.0
+margin_bottom = -47.0
+text = ":))"
+
+[node name="strRcLeft" type="Label" parent="."]
+margin_left = 15.0
+margin_top = -27.0
+margin_right = 55.0
+margin_bottom = -13.0
+text = ":))"
+
+[node name="strRcFront" type="Label" parent="."]
+margin_left = 15.0
+margin_top = -11.0
+margin_right = 55.0
+margin_bottom = 3.0
+text = ":))"
+
+[connection signal="screen_exited" from="visibilityNotifier2D" to="." method="_on_visibilityNotifier2D_screen_exited"]
+[connection signal="body_entered" from="area2D" to="." method="_on_area2D_body_entered"]
+[connection signal="body_exited" from="area2D" to="." method="_on_area2D_body_exited"]
+[connection signal="body_entered" from="floorArea2D" to="." method="_on_floorArea2D_body_entered"]

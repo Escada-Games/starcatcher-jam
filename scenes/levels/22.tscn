@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/fgbg.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/mainCamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/spike.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/tileMap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/starPiecesManager.tscn" type="PackedScene" id=6]
+
+[node name="debugRoot" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 125.0 ],
+"_edit_vertical_guides_": [ 158.0 ]
+}
+
+[node name="debug2d" type="Node2D" parent="."]
+
+[node name="mainCamera" parent="debug2d" instance=ExtResource( 2 )]
+
+[node name="fgbg" parent="debug2d" instance=ExtResource( 1 )]
+
+[node name="player" parent="debug2d" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+position = Vector2( 158, -40 )
+bCanFlip = true
+
+[node name="tileMap" parent="debug2d" instance=ExtResource( 5 )]
+position = Vector2( -2, 0 )
+collision_layer = 7
+collision_mask = 7
+tile_data = PoolIntArray( 131089, 1, 131073, 131090, 1, 65537, 196625, 1, 131075, 196626, 1, 0, 262148, 1, 0, 262149, 1, 131073, 262152, 1, 0, 262153, -1073741823, 65536, 262154, -1073741823, 0, 262155, -1073741823, 131073, 262161, 1, 131073, 262162, 1, 0, 327684, 1, 0, 327685, 1, 131073, 327688, 1, 196611, 327689, 1, 131073, 327690, -1073741823, 65539, 327691, 1, 0, 327697, 1, 196609, 327698, 1, 0, 393220, 1, 131073, 393221, 1, 65538, 393233, 1, 0, 393234, 1, 196609, 458756, 1, 0, 458757, 1, 0, 458769, 1, 65539, 458770, 1, 65538, 524292, 1, 0, 524293, 1, 0, 524305, 1, 196610, 524306, 1, 131073, 589828, 1, 0, 589829, 1, 131073, 589841, 1, 196608, 589842, 1, 0, 655364, 1, 0, 655365, 1, 131073, 655368, 1, 2, 655369, 1, 0, 655370, 1, 0, 655371, 1, 65539, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 131074, 655378, 1, 0, 720900, 1, 0, 720901, 1, 131073, 720904, 1, 65539, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720910, 1, 196608, 720911, 1, 65536, 720912, 1, 65539, 720913, 1, 0, 720914, 1, 0 )
+
+[node name="tileMapBg" parent="debug2d/tileMap" index="0"]
+tile_data = PoolIntArray( 262154, -1073741822, 1, 327688, -1073741823, 0, 327689, -1073741822, 2, 327690, -1073741822, 0, 327691, -1073741823, 0, 393224, -1073741823, 0, 393225, -1073741822, 196611, 393226, -1073741822, 0, 393227, -1073741823, 2, 458760, -1073741823, 0, 458761, -1073741822, 0, 524296, -1073741823, 0, 524297, -1073741822, 0, 589832, -1073741823, 0, 589833, -1073741822, 131072, 589834, -1073741822, 0, 655365, -1073741823, 0, 655368, -1073741823, 131073, 655369, -1073741822, 0, 655370, -1073741822, 0, 655371, -1073741823, 0, 655374, -1073741823, 0, 655375, -1073741823, 131073, 655377, -1073741823, 0, 720900, -1073741823, 0, 720901, -1073741823, 1, 720904, -1073741823, 0, 720905, -1073741822, 0, 720906, -1073741822, 0, 720907, -1073741823, 65539, 720910, -1073741823, 0, 720911, -1073741823, 0, 720913, -1073741823, 0, 786436, -1073741823, 0, 786437, -1073741823, 0, 786440, -1073741823, 0, 786441, -1073741822, 1, 786442, -1073741822, 0, 786443, -1073741823, 131073, 786446, -1073741823, 0, 786447, -1073741822, 0, 786449, -1073741823, 0, 786450, -1073741823, 0, 851972, -1073741823, 0, 851973, -1073741823, 131072, 851976, -1073741823, 65537, 851977, -1073741822, 0, 851978, -1073741822, 0, 851979, -1073741823, 0, 851982, -1073741823, 131073, 851983, -1073741822, 0, 851984, -1073741822, 0, 851985, -1073741822, 0, 851986, -1073741823, 1, 917508, -1073741823, 0, 917509, -1073741823, 131073, 917512, -1073741823, 131073, 917513, -1073741822, 65537, 917514, -1073741822, 0, 917515, -1073741823, 2, 917518, -1073741823, 131075, 917519, -1073741823, 196611, 917520, -1073741822, 0, 917521, -1073741823, 0, 917522, -1073741823, 0, 983044, -1073741823, 131073, 983045, -1073741823, 0, 983048, -1073741823, 0, 983049, -1073741822, 131073, 983050, -1073741822, 0, 983051, -1073741823, 0, 983054, -1073741823, 65537, 983055, -1073741823, 196609, 983057, -1073741823, 131073, 983058, -1073741823, 0, 1048580, -1073741823, 0, 1048581, -1073741823, 0, 1048584, -1073741823, 0, 1048585, -1073741822, 0, 1048586, -1073741822, 3, 1048587, -1073741823, 0, 1048590, -1073741823, 0, 1048591, -1073741823, 131073, 1048593, -1073741823, 0, 1048594, -1073741823, 0, 1114116, -1073741823, 131073, 1114117, -1073741823, 131073, 1114121, -1073741822, 196609, 1114122, -1073741822, 0, 1114123, -1073741823, 0, 1114126, -1073741823, 0, 1114127, -1073741823, 131073, 1114129, -1073741823, 0, 1114130, -1073741823, 131073, 1179652, -1073741823, 65538, 1179653, -1073741823, 0, 1179657, -1073741822, 0, 1179658, -1073741822, 0, 1179662, -1073741823, 196611, 1179663, -1073741823, 0, 1179665, -1073741823, 196611, 1179666, -1073741823, 0, 1245188, -1073741823, 0, 1245193, -1073741822, 0, 1245194, -1073741822, 0, 1245201, -1073741823, 0, 1245202, -1073741823, 131073, 1310729, -1073741822, 0, 1310730, -1073741822, 2, 1310738, -1073741823, 0, 1376265, -1073741822, 131072, 1376266, -1073741822, 196608, 1376274, -1073741823, 0, 1441802, -1073741822, 65539, 1507338, -1073741822, 0 )
+
+[node name="tileMapRocks" parent="debug2d/tileMap" index="2"]
+tile_data = PoolIntArray( 196612, 4, 196610, 196616, 4, 65539, 196617, 4, 131074, 196618, 4, 2, 589832, 4, 196609, 589833, 4, 131073, 589834, 4, 0, 589835, 4, 0, 589838, 4, 196609, 589839, 4, 0 )
+
+[node name="stuff" type="Node2D" parent="debug2d"]
+
+[node name="starPiecesManager" parent="debug2d/stuff" instance=ExtResource( 6 )]
+
+[node name="exit" parent="debug2d/stuff/starPiecesManager" index="0"]
+position = Vector2( 158, 48 )
+
+[node name="0" parent="debug2d/stuff/starPiecesManager/starPieces" index="0"]
+position = Vector2( 158, 210 )
+rotation = 3.14159
+
+[node name="1" parent="debug2d/stuff/starPiecesManager/starPieces" index="1"]
+position = Vector2( 245, 141 )
+
+[node name="2" parent="debug2d/stuff/starPiecesManager/starPieces" index="2"]
+position = Vector2( 254, 48 )
+rotation = -1.57079
+
+[node name="3" parent="debug2d/stuff/starPiecesManager/starPieces" index="3"]
+position = Vector2( 78, 48 )
+
+[node name="4" parent="debug2d/stuff/starPiecesManager/starPieces" index="4"]
+position = Vector2( 78, 208 )
+rotation = -3.14159
+
+[node name="spike" parent="debug2d/stuff" instance=ExtResource( 4 )]
+position = Vector2( 230, 200 )
+rotation = -3.14159
+
+[node name="spike2" parent="debug2d/stuff" instance=ExtResource( 4 )]
+position = Vector2( 246, 200 )
+rotation = -3.14159
+
+[node name="spike3" parent="debug2d/stuff" instance=ExtResource( 4 )]
+position = Vector2( 262, 200 )
+rotation = -3.14159
+
+[node name="spike4" parent="debug2d/stuff" instance=ExtResource( 4 )]
+position = Vector2( 278, 200 )
+rotation = -3.14159
+
+[node name="spike5" parent="debug2d/stuff" instance=ExtResource( 4 )]
+position = Vector2( 294, 200 )
+rotation = -3.14159
+
+[node name="spike6" parent="debug2d/stuff" instance=ExtResource( 4 )]
+position = Vector2( 278, 24 )
+rotation = -6.28318
+
+[node name="spike7" parent="debug2d/stuff" instance=ExtResource( 4 )]
+position = Vector2( 294, 24 )
+rotation = -6.28318
+
+[editable path="debug2d/tileMap"]
+[editable path="debug2d/stuff/starPiecesManager"]

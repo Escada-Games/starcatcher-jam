@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/constelationManager.gd" type="Script" id=1]
+[ext_resource path="res://scenes/sprStarEnd.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/mainCamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/fgbg.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/exit.tscn" type="PackedScene" id=7]
+
+[node name="debugRoot" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 125.0 ],
+"_edit_vertical_guides_": [ 158.0 ]
+}
+
+[node name="debug2d" type="Node2D" parent="."]
+
+[node name="mainCamera" parent="debug2d" instance=ExtResource( 5 )]
+
+[node name="fgbg" parent="debug2d" instance=ExtResource( 6 )]
+
+[node name="player" parent="debug2d" instance=ExtResource( 4 )]
+unique_name_in_owner = true
+position = Vector2( -98, 134 )
+
+[node name="starExit" parent="debug2d" instance=ExtResource( 7 )]
+position = Vector2( -98, 48 )
+
+[node name="tileMap" parent="debug2d" instance=ExtResource( 3 )]
+position = Vector2( -2, 0 )
+collision_layer = 7
+collision_mask = 7
+tile_data = PoolIntArray( 65527, 1, 1, 65528, 1, 0, 65529, 1, 0, 65530, 1, 0, 65531, 1, 0, 65532, 1, 65536, 131063, 1, 196608, 131068, 1, 0, 196599, 1, 131073, 196604, 1, 131072, 262135, 1, 65537, 262140, 1, 0, 327671, 1, 3, 327676, 1, 0, 393207, 1, 131073, 393208, 1, 131073, 393209, 1, 196609, 393210, 1, 0, 393211, 1, 0, 393212, 1, 196608 )
+
+[node name="tileMapRocks" parent="debug2d/tileMap" index="4"]
+tile_data = PoolIntArray( 131075, 4, 65537, 131076, 4, 196610, 131079, 4, 0, 131080, 4, 3, 131081, 4, 196611, 131082, 4, 2, 131083, 4, 0, 131084, 4, 0, 131085, 4, 3, 720899, 4, 65537, 720900, 4, 1, 720901, 4, 131074, 720902, 4, 0 )
+
+[node name="constelationManager" type="Node2D" parent="debug2d"]
+position = Vector2( 0, -8 )
+script = ExtResource( 1 )
+iNumberOfStars = 4
+
+[node name="lines" type="Node2D" parent="debug2d/constelationManager"]
+
+[node name="sprStarEnd2" parent="debug2d/constelationManager" instance=ExtResource( 2 )]
+position = Vector2( 54, 48 )
+
+[node name="sprStarEnd3" parent="debug2d/constelationManager" instance=ExtResource( 2 )]
+position = Vector2( 94, 128 )
+
+[node name="sprStarEnd4" parent="debug2d/constelationManager" instance=ExtResource( 2 )]
+position = Vector2( 158, 120 )
+
+[node name="sprStarEnd5" parent="debug2d/constelationManager" instance=ExtResource( 2 )]
+position = Vector2( 206, 200 )
+
+[node name="sprStarEnd6" parent="debug2d/constelationManager" instance=ExtResource( 2 )]
+position = Vector2( 270, 136 )
+
+[node name="sprStarEnd7" parent="debug2d/constelationManager" instance=ExtResource( 2 )]
+position = Vector2( 158, 184 )
+bFormsLine = false
+
+[editable path="debug2d/tileMap"]

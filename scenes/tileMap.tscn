@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://resources/tilemapPlants.tres" type="TileSet" id=1]
+[ext_resource path="res://resources/tilemap.tres" type="TileSet" id=2]
+[ext_resource path="res://resources/tilemapRocks.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/tileMapAutotile.gd" type="Script" id=4]
+[ext_resource path="res://resources/tilemapAutotile2x2-test.tres" type="TileSet" id=5]
+[ext_resource path="res://resources/textures/tilemaps/1.tres" type="TileSet" id=6]
+
+[node name="tileMap" type="TileMap"]
+z_index = -5
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 3
+collision_mask = 3
+format = 1
+
+[node name="tileMapSliding" type="TileMap" parent="." groups=["SlideBlock"]]
+modulate = Color( 0.0313726, 0, 1, 1 )
+z_index = -5
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 7
+collision_mask = 7
+format = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="tileMapDiver" type="TileMap" parent="." groups=["DiverBlock"]]
+modulate = Color( 0, 1, 0.109804, 1 )
+z_index = -5
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 5
+collision_mask = 5
+format = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="tileMapBg" type="TileMap" parent="."]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+z_index = -5
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_half_offset = 1
+collision_layer = 0
+collision_mask = 0
+format = 1
+
+[node name="tileMapPlants" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_half_offset = 0
+collision_layer = 0
+collision_mask = 0
+format = 1
+
+[node name="tileMapRocks" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_half_offset = 0
+collision_layer = 0
+collision_mask = 0
+format = 1
+
+[node name="tileMapAutotileBg" type="TileMap" parent="."]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+script = ExtResource( 4 )
+
+[node name="tileMapAutotile" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 7
+collision_mask = 7
+format = 1
+script = ExtResource( 4 )

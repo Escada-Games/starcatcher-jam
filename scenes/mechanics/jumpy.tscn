@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/textures/tilemap.png" type="Texture" id=1]
+[ext_resource path="res://scenes/mechanics/jumpy.gd" type="Script" id=2]
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[node name="jumpy" type="KinematicBody2D" groups=["Jumpy"]]
+position = Vector2( 160, 128 )
+collision_layer = 7
+collision_mask = 7
+script = ExtResource( 2 )
+
+[node name="lightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 2 )
+
+[node name="tween" type="Tween" parent="."]
+
+[node name="icon" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 4
+
+[node name="collisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

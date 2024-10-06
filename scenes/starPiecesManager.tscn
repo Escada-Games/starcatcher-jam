@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/starPiece.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/exitStar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/starPiecesManager.gd" type="Script" id=4]
+
+[node name="starPiecesManager" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="exit" parent="." instance=ExtResource( 2 )]
+
+[node name="tween" type="Tween" parent="."]
+
+[node name="starPieces" type="Node2D" parent="."]
+
+[node name="0" parent="starPieces" instance=ExtResource( 1 )]
+position = Vector2( 144, 109 )
+
+[node name="1" parent="starPieces" instance=ExtResource( 1 )]
+position = Vector2( 186, 176 )
+
+[node name="2" parent="starPieces" instance=ExtResource( 1 )]
+position = Vector2( 260, 174 )
+
+[node name="3" parent="starPieces" instance=ExtResource( 1 )]
+position = Vector2( 277, 145 )
+
+[node name="4" parent="starPieces" instance=ExtResource( 1 )]
+position = Vector2( 305, 179 )

@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/pal6-fill.png-8a14e05c940b20b670f40e8c32a9300c.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://resources/textures/tilemaps/pal6-fill.png"
+dest_files=[ "res://.import/pal6-fill.png-8a14e05c940b20b670f40e8c32a9300c.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

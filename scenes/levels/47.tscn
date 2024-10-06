@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/stageManager.gd" type="Script" id=1]
+[ext_resource path="res://scenes/starExit.gd" type="Script" id=2]
+[ext_resource path="res://resources/textures/player/pal0.png" type="Texture" id=3]
+[ext_resource path="res://scenes/tileMap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/fgbg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/mainCamera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/exitStar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/mechanics/pushBlock.tscn" type="PackedScene" id=9]
+
+[node name="debugRoot" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 125.0 ],
+"_edit_vertical_guides_": [ 158.0 ]
+}
+
+[node name="stageManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 1 )
+iPalette = 0
+
+[node name="mainCamera" parent="stageManager" instance=ExtResource( 6 )]
+zoom = Vector2( 1.33, 1.33 )
+
+[node name="fgbg" parent="stageManager" instance=ExtResource( 5 )]
+
+[node name="player" parent="stageManager" instance=ExtResource( 8 )]
+unique_name_in_owner = true
+position = Vector2( 94, -24 )
+
+[node name="sprite" parent="stageManager/player" index="4"]
+texture = ExtResource( 3 )
+
+[node name="tileMap" parent="stageManager" instance=ExtResource( 4 )]
+position = Vector2( -2, -22 )
+collision_layer = 7
+collision_mask = 7
+tile_data = PoolIntArray( 262160, 1, 0, 262161, 1, 0, 262162, 1, 0, 262163, 1, 0, 327696, 1, 0, 327697, 1, 0, 327698, 1, 0, 327699, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 1, 0, 393235, 1, 0, 458762, 1, 0, 458763, 1, 0, 524298, 1, 0, 524299, 1, 0, 786452, 1, 0, 786453, 1, 0, 786454, 1, 0, 851988, 1, 0, 851989, 1, 0, 851990, 1, 0, 917524, 1, 0, 917525, 1, 0, 917526, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1114116, 1, 0, 1114117, 1, 0, 1114118, 1, 0, 1114119, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1179655, 1, 0 )
+
+[node name="stuff" type="Node2D" parent="stageManager"]
+
+[node name="pushBlock" parent="stageManager/stuff" instance=ExtResource( 9 )]
+position = Vector2( 174, 216 )
+
+[node name="exit" parent="stageManager" instance=ExtResource( 7 )]
+position = Vector2( 142, 106 )
+rotation = -1.57079
+script = ExtResource( 2 )
+
+[editable path="stageManager/player"]
+[editable path="stageManager/tileMap"]

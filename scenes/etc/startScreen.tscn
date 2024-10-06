@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/stageManager.gd" type="Script" id=1]
+[ext_resource path="res://scenes/gameName.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/etc/controlHint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/etc/btnProfile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/mainCamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/fgbg.tscn" type="PackedScene" id=8]
+
+[node name="debugRoot" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 125.0 ],
+"_edit_vertical_guides_": [ 158.0 ]
+}
+
+[node name="stageManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 1 )
+iPalette = 0
+
+[node name="mainCamera" parent="stageManager" instance=ExtResource( 5 )]
+
+[node name="fgbg" parent="stageManager" instance=ExtResource( 8 )]
+bRandomizePalette = true
+
+[node name="stuff" type="Node2D" parent="stageManager"]
+
+[node name="gameBanner" parent="stageManager/stuff" instance=ExtResource( 2 )]
+position = Vector2( 158, 48 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="controlProfiles" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="marginContainer" type="MarginContainer" parent="controlProfiles"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 96
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 80
+
+[node name="hBoxContainer" type="HBoxContainer" parent="controlProfiles/marginContainer"]
+margin_left = 32.0
+margin_top = 96.0
+margin_right = 283.0
+margin_bottom = 170.0
+alignment = 1
+
+[node name="btnProfile" parent="controlProfiles/marginContainer/hBoxContainer" instance=ExtResource( 4 )]
+margin_bottom = 74.0
+focus_next = NodePath("../btnProfile2")
+bGrabFocus = true
+
+[node name="btnProfile2" parent="controlProfiles/marginContainer/hBoxContainer" instance=ExtResource( 4 )]
+margin_left = 85.0
+margin_right = 166.0
+margin_bottom = 74.0
+focus_next = NodePath("../btnProfile3")
+
+[node name="vBoxContainer" parent="controlProfiles/marginContainer/hBoxContainer/btnProfile2/marginContainer" index="0"]
+margin_bottom = 70.0
+
+[node name="strProfileName" parent="controlProfiles/marginContainer/hBoxContainer/btnProfile2/marginContainer/vBoxContainer" index="0"]
+text = "Profile #2"
+
+[node name="btnProfile3" parent="controlProfiles/marginContainer/hBoxContainer" instance=ExtResource( 4 )]
+margin_left = 170.0
+margin_right = 251.0
+margin_bottom = 74.0
+focus_next = NodePath("../btnProfile")
+
+[node name="vBoxContainer" parent="controlProfiles/marginContainer/hBoxContainer/btnProfile3/marginContainer" index="0"]
+margin_bottom = 70.0
+
+[node name="strProfileName" parent="controlProfiles/marginContainer/hBoxContainer/btnProfile3/marginContainer/vBoxContainer" index="0"]
+text = "Profile #3"
+
+[node name="controlHint" parent="." instance=ExtResource( 3 )]
+
+[editable path="controlProfiles/marginContainer/hBoxContainer/btnProfile2"]
+[editable path="controlProfiles/marginContainer/hBoxContainer/btnProfile3"]

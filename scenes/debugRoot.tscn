@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/exit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mainCamera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/fgbg.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/tileMap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/tilemapAutotile2x2-test.tres" type="TileSet" id=6]
+[ext_resource path="res://scenes/tileMap2.gd" type="Script" id=7]
+[ext_resource path="res://resources/textures/nebulas/palette0/0.png" type="Texture" id=8]
+[ext_resource path="res://resources/textures/player/pal0.png" type="Texture" id=9]
+
+[node name="debugRoot" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 125.0 ],
+"_edit_vertical_guides_": [ 158.0 ]
+}
+
+[node name="debug2d" type="Node2D" parent="."]
+
+[node name="mainCamera" parent="debug2d" instance=ExtResource( 3 )]
+
+[node name="fgbg" parent="debug2d" instance=ExtResource( 4 )]
+visible = false
+
+[node name="player" parent="debug2d" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+position = Vector2( 80, -40 )
+
+[node name="sprite" parent="debug2d/player" index="4"]
+texture = ExtResource( 9 )
+
+[node name="starExit" parent="debug2d" instance=ExtResource( 1 )]
+position = Vector2( 230, 56 )
+
+[node name="tileMap" parent="debug2d" instance=ExtResource( 5 )]
+position = Vector2( -2, 0 )
+collision_layer = 7
+collision_mask = 7
+
+[node name="stuff" type="Node2D" parent="debug2d"]
+
+[node name="tileMap2" type="TileMap" parent="debug2d"]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 7
+collision_mask = 7
+format = 1
+tile_data = PoolIntArray( 262157, 0, 196609, 262158, 0, 3, 262159, 0, 0, 327693, 0, 1, 327694, 0, 65538, 327695, 0, 131075, 393218, 0, 196609, 393219, 0, 3, 393220, 0, 3, 393221, 0, 3, 393222, 0, 3, 393223, 0, 3, 393224, 0, 3, 393225, 0, 0, 393229, 0, 131072, 393230, 0, 131073, 393231, 0, 196611, 458754, 0, 1, 458755, 0, 65538, 458756, 0, 65538, 458757, 0, 65538, 458758, 0, 65538, 458759, 0, 65538, 458760, 0, 65538, 458761, 0, 131075, 524290, 0, 1, 524291, 0, 65538, 524292, 0, 65538, 524293, 0, 65538, 524294, 0, 65538, 524295, 0, 65538, 524296, 0, 65538, 524297, 0, 131075, 589826, 0, 1, 589827, 0, 65538, 589828, 0, 65538, 589829, 0, 65538, 589830, 0, 65538, 589831, 0, 65538, 589832, 0, 65538, 589833, 0, 131075, 655362, 0, 1, 655363, 0, 65538, 655364, 0, 65538, 655365, 0, 65538, 655366, 0, 65538, 655367, 0, 65538, 655368, 0, 65538, 655369, 0, 2, 655370, 0, 3, 655371, 0, 3, 655372, 0, 3, 655373, 0, 3, 655374, 0, 0, 720898, 0, 1, 720899, 0, 65538, 720900, 0, 65538, 720901, 0, 65538, 720902, 0, 65538, 720903, 0, 65538, 720904, 0, 65538, 720905, 0, 65538, 720906, 0, 65538, 720907, 0, 65538, 720908, 0, 65538, 720909, 0, 65538, 720910, 0, 131075, 786434, 0, 1, 786435, 0, 65538, 786436, 0, 65538, 786437, 0, 65538, 786438, 0, 65538, 786439, 0, 65538, 786440, 0, 65538, 786441, 0, 65538, 786442, 0, 65538, 786443, 0, 65538, 786444, 0, 65538, 786445, 0, 65538, 786446, 0, 131075, 851970, 0, 131072, 851971, 0, 131073, 851972, 0, 131073, 851973, 0, 131073, 851974, 0, 131073, 851975, 0, 131073, 851976, 0, 131073, 851977, 0, 131073, 851978, 0, 131073, 851979, 0, 131073, 851980, 0, 131073, 851981, 0, 131073, 851982, 0, 196611 )
+script = ExtResource( 7 )
+
+[node name="bgNebula" type="Node2D" parent="debug2d"]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+z_index = -1000
+
+[node name="sprite" type="Sprite" parent="debug2d/bgNebula"]
+position = Vector2( 158, 125 )
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 8 )
+
+[editable path="debug2d/player"]
+[editable path="debug2d/tileMap"]

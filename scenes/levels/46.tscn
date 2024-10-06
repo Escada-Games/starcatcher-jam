@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/stageManager.gd" type="Script" id=1]
+[ext_resource path="res://scenes/starPiecesManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/textures/player/pal0.png" type="Texture" id=3]
+[ext_resource path="res://scenes/tileMap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/fgbg.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/mainCamera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/mechanics/jumpy.tscn" type="PackedScene" id=9]
+
+[node name="debugRoot" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 125.0 ],
+"_edit_vertical_guides_": [ 158.0 ]
+}
+
+[node name="stageManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 1 )
+iPalette = 0
+
+[node name="mainCamera" parent="stageManager" instance=ExtResource( 7 )]
+
+[node name="fgbg" parent="stageManager" instance=ExtResource( 6 )]
+
+[node name="player" parent="stageManager" instance=ExtResource( 8 )]
+unique_name_in_owner = true
+position = Vector2( 102, -40 )
+
+[node name="sprite" parent="stageManager/player" index="4"]
+texture = ExtResource( 3 )
+
+[node name="tileMap" parent="stageManager" instance=ExtResource( 5 )]
+position = Vector2( -2, -22 )
+collision_layer = 7
+collision_mask = 7
+tile_data = PoolIntArray( 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786443, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0 )
+
+[node name="tileMapSliding" parent="stageManager/tileMap" index="0"]
+tile_data = PoolIntArray( 786435, 1, 0, 786448, 1, 0, 851971, 1, 0, 851984, 1, 0 )
+
+[node name="stuff" type="Node2D" parent="stageManager"]
+
+[node name="jumpy" parent="stageManager/stuff" instance=ExtResource( 9 )]
+position = Vector2( 158, 186 )
+
+[node name="starPiecesManager" parent="stageManager/stuff" instance=ExtResource( 2 )]
+
+[node name="exit" parent="stageManager/stuff/starPiecesManager" index="0"]
+position = Vector2( 158, 152 )
+
+[node name="0" parent="stageManager/stuff/starPiecesManager/starPieces" index="0"]
+position = Vector2( 238, 88 )
+
+[node name="1" parent="stageManager/stuff/starPiecesManager/starPieces" index="1"]
+position = Vector2( 238, 152 )
+rotation = 3.14159
+
+[node name="2" parent="stageManager/stuff/starPiecesManager/starPieces" index="2"]
+position = Vector2( 78, 88 )
+
+[node name="3" parent="stageManager/stuff/starPiecesManager/starPieces" index="3"]
+position = Vector2( 78, 152 )
+rotation = -3.14159
+
+[node name="4" parent="stageManager/stuff/starPiecesManager/starPieces" index="4"]
+position = Vector2( 158, 216 )
+
+[editable path="stageManager/player"]
+[editable path="stageManager/tileMap"]
+[editable path="stageManager/stuff/starPiecesManager"]

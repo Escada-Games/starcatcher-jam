@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/starcatcher.ogg-909009dc7f6765bb52835fda6a6a14cf.oggstr"
+
+[deps]
+
+source_file="res://resources/music/starcatcher.ogg"
+dest_files=[ "res://.import/starcatcher.ogg-909009dc7f6765bb52835fda6a6a14cf.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

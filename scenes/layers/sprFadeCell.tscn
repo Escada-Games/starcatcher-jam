@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/layers/sprFadeCell.gd" type="Script" id=1]
+[ext_resource path="res://resources/textures/sprStarCell.png" type="Texture" id=2]
+
+[node name="sprFadeCell" type="Sprite"]
+modulate = Color( 0.329412, 0.305882, 0.407843, 1 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )

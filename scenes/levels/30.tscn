@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/exit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mainCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/fgbg.tscn" type="PackedScene" id=5]
+
+[node name="debugRoot" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 125.0 ],
+"_edit_vertical_guides_": [ 158.0 ]
+}
+
+[node name="debug2d" type="Node2D" parent="."]
+
+[node name="mainCamera" parent="debug2d" instance=ExtResource( 4 )]
+
+[node name="fgbg" parent="debug2d" instance=ExtResource( 5 )]
+
+[node name="player" parent="debug2d" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+position = Vector2( 158, -40 )
+
+[node name="starExit" parent="debug2d" instance=ExtResource( 1 )]
+position = Vector2( 158, 176 )
+rotation = 3.14159
+
+[node name="tileMap" parent="debug2d" instance=ExtResource( 3 )]
+position = Vector2( -2, 0 )
+collision_layer = 7
+collision_mask = 7
+tile_data = PoolIntArray( 393225, 1, 0, 393226, 1, 0, 458761, 1, 0, 458762, 1, 0, 524290, 1, 0, 524291, 1, 0, 524304, 1, 0, 524305, 1, 0, 589826, 1, 0, 589827, 1, 0, 589840, 1, 0, 589841, 1, 0, 655362, 1, 0, 655363, 1, 0, 655376, 1, 0, 655377, 1, 0, 720898, 1, 0, 720899, 1, 0, 720912, 1, 0, 720913, 1, 0, 786434, 1, 0, 786435, 1, 0, 786448, 1, 0, 786449, 1, 0 )
+
+[node name="tileMapSliding" parent="debug2d/tileMap" index="0"]
+tile_data = PoolIntArray( 262146, 1, 0, 262147, 1, 0, 262160, 1, 0, 262161, 1, 0, 327682, 1, 0, 327683, 1, 0, 327696, 1, 0, 327697, 1, 0, 393218, 1, 0, 393219, 1, 0, 393232, 1, 0, 393233, 1, 0, 458754, 1, 0, 458755, 1, 0, 458768, 1, 0, 458769, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0 )
+
+[node name="tileMapRocks" parent="debug2d/tileMap" index="4"]
+tile_data = PoolIntArray( 131075, 4, 65537, 131076, 4, 196610, 131079, 4, 0, 131080, 4, 3, 131081, 4, 196611, 131082, 4, 2, 131083, 4, 0, 131084, 4, 0, 131085, 4, 3, 720899, 4, 65537, 720900, 4, 1, 720901, 4, 131074, 720902, 4, 0 )
+
+[node name="stuff" type="Node2D" parent="debug2d"]
+
+[editable path="debug2d/tileMap"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/lights.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/fgParticles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/bgNebula.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/stars.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/vignette.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/fgbgManager.gd" type="Script" id=6]
+
+[node name="fgbg" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="layerBg" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="bgNebula" parent="layerBg" instance=ExtResource( 3 )]
+
+[node name="stars" parent="layerBg" instance=ExtResource( 4 )]
+
+[node name="fgRockParticles" parent="." instance=ExtResource( 2 )]
+
+[node name="layerFg" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="vignette" parent="layerFg" instance=ExtResource( 5 )]
+
+[node name="lights" parent="." instance=ExtResource( 1 )]
